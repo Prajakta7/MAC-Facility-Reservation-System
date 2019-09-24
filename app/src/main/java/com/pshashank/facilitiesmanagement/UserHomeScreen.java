@@ -9,6 +9,6 @@ public class UserHomeScreen extends LoginActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_home_screen2);
+        setContentView(R.layout.activity_user_home_screen);
     }
 }
