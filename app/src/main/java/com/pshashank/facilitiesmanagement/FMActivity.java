@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class FMActivity extends AppCompatActivity {
+public class FMActivity extends LoginActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
