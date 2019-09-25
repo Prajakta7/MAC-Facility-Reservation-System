@@ -14,7 +14,7 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Username" />
+        android:text="jdoe" />
 
     <EditText
         android:id="@+id/password"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_below="@id/username"
-        android:text="password"
+        android:text="pass"
         android:layout_centerHorizontal="true"
         android:inputType="textPassword" />
 

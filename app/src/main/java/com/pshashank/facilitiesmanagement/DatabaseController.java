@@ -1,3 +1,5 @@
+package com.pshashank.facilitiesmanagement;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -10,13 +12,16 @@ public class DatabaseController extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Facillities.db";
     public static final String TABLE_USER = "user";
     public static final String COLUMN_TYPE = "user_type";
+    public static final String COLUMN_UNAME = "user_uname";
+    public static final String COLUMN_PASS = "user_pass";
+    public static final String COLUMN_UTAID = "user_id";
     public static final String COLUMN_FNAME = "first_name";
     public static final String COLUMN_LNAME = "last_name";
     public static final String COLUMN_PHONE = "phone";
     public static final String COLUMN_EMAIL = "email";
     public static final String COLUMN_ADDRESS = "street_address";
     public static final String COLUMN_CITY = "city";
-    public static final String COLUMN_STATE = "statw";
+    public static final String COLUMN_STATE = "state";
     public static final String COLUMN_ZIP = "zip_code";
 
 
@@ -25,6 +30,8 @@ public class DatabaseController extends SQLiteOpenHelper {
     private static final String DATABASE_CREATE = "CREATE TABLE IF NOT EXISTS "
             + TABLE_USER + " ( " +
             COLUMN_TYPE+ " TEXT ,"+
+            COLUMN_UNAME+ " TEXT ,"+
+            COLUMN_PASS+ " TEXT ,"+
             COLUMN_FNAME+ " TEXT ,"+
             COLUMN_LNAME+ " TEXT ,"+
             COLUMN_PHONE+ " TEXT ,"+
@@ -40,28 +47,31 @@ public class DatabaseController extends SQLiteOpenHelper {
     }
 
 
-    public boolean insertContact(String fname,String mname,String lname,String phone,String email, String address,String city,
+    public boolean insertContact(String type, String uname, String pass,String fname,String lname,String phone,String email, String address,String city,
                                  String state,String zip) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+        contentValues.put("user_type", type);
+        contentValues.put("user_uname", uname);
+        contentValues.put("user_pass", pass);
         contentValues.put("first_name", fname);
         contentValues.put("last_name", lname);
         contentValues.put("phone", phone);
         contentValues.put("email", email);
-        contentValues.put("address", address);
+        contentValues.put("street_address", address);
         contentValues.put("city", city);
-        contentValues.put("qualification", city);
-        contentValues.put("experience", state);
-        contentValues.put("emp_id", zip);
+        contentValues.put("state", state);
+        contentValues.put("zip_code", zip);
         db.insert(TABLE_USER, null, contentValues);
         return true;
     }
-    public Cursor getData(String branch) {
+    public Cursor getUser(String username, String password){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from employees where branch = '"+branch+"'" , null );
+        Cursor res =  db.rawQuery( "select * from '"+TABLE_USER+"' where user_uname = '"+username+"' and user_pass ='"+password+"'", null );
         return res;
     }
+
     public DatabaseController(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -95,9 +105,9 @@ public class DatabaseController extends SQLiteOpenHelper {
         return true;
     }
 
-    public Integer deleteContact (String id) {
+    public Integer deleteUser (String id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete("employees", "id = ? ", new String[] {
+        return db.delete(TABLE_USER , "id = ? ", new String[] {
                 (id) });
     }
     public void dropTable(String tableName){
@@ -105,12 +115,13 @@ public class DatabaseController extends SQLiteOpenHelper {
         db.execSQL("drop table "+ tableName);
     }
 
-    public  Cursor getAllEmployees() {
+//    public  Cursor getAllEmployees() {
+//
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor res =  db.rawQuery( "select * from employees", null );
+//        return res;
+//    }
 
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res =  db.rawQuery( "select * from employees", null );
-        return res;
-    }
     public int numberOfRows(){
         SQLiteDatabase db = this.getReadableDatabase();
         return (int) DatabaseUtils.queryNumEntries(db, "employees");
