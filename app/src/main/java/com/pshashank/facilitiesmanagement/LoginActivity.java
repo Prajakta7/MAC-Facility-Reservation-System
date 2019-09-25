@@ -27,10 +27,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         SQLiteDatabase db = obj.getReadableDatabase();
-        boolean res = obj.insertContact(FM,"jdoe","pass","jane","doe","1244567890","jane.doe@mavs.uta.edu","Summit Ave","Arlington","Texas","76013");
-        if(res){
-            Log.d("----->SQLInsert","Inserted");
-        }
+//        boolean res = obj.insertContact(FM,"jdoe","pass","jane","doe","1244567890","jane.doe@mavs.uta.edu","Summit Ave","Arlington","Texas","76013");
+//        if(res){
+//            Log.d("----->SQLInsert","Inserted");
+//        }
         username = (EditText)findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
 
