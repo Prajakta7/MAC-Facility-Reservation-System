@@ -4,50 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:theme="@style/AppTheme.NoActionBar">
 
-    <EditText
-        android:id="@+id/username"
+    <TextView
+        android:id="@+id/app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp"
+        android:textSize="30dp"
+        android:text="Facilities Management" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp">
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="60dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="jdoe" />
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:ems="10"
-        android:layout_below="@id/username"
         android:text="pass"
         android:layout_centerHorizontal="true"
+        android:layout_below="@+id/username"
         android:inputType="textPassword" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="1dp"
         android:layout_below="@+id/password">
 
         <Button
             android:id="@+id/login"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:layout_gravity="center"
+            android:height="10dp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/custom_button"
             android:text="Login"/>
 
         <Button
             android:id="@+id/signup"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:height="10dp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/custom_reverse_button"
             android:layout_gravity="center"
             android:text="Sign Up"/>
 
     </LinearLayout>
+    </LinearLayout>
+
+
 
 
 </RelativeLayout>

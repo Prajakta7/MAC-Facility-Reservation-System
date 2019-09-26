@@ -3,8 +3,23 @@
 android:orientation="vertical"
 android:layout_width="match_parent"
 android:layout_height="match_parent">
+<!--    <com.google.android.material.appbar.AppBarLayout-->
+<!--        android:id="@+id/app_bar_layout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        >-->
 
-<TextView
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:id="@+id/toolbar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            >-->
+<!--        </androidx.appcompat.widget.Toolbar>-->
+
+<!--    </com.google.android.material.appbar.AppBarLayout>-->
+
+
+    <TextView
     android:id="@+id/textView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -18,12 +33,24 @@ android:layout_height="match_parent">
     android:id="@+id/button4"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="40dp"
+    android:layout_marginRight="40dp"
+    android:height="10dp"
+    android:textColor="#FFFFFF"
+    android:background="@drawable/custom_reverse_button"
     android:text="Update My Profile" />
 
 <Button
     android:id="@+id/button5"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="40dp"
+    android:layout_marginRight="40dp"
+    android:height="10dp"
+    android:textColor="#FFFFFF"
+    android:background="@drawable/custom_reverse_button"
     android:clickable="true"
     android:text="View My Profile" />
 
@@ -31,6 +58,12 @@ android:layout_height="match_parent">
     android:id="@+id/button6"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="40dp"
+    android:layout_marginRight="40dp"
+    android:height="10dp"
+    android:textColor="#FFFFFF"
+    android:background="@drawable/custom_reverse_button"
     android:clickable="true"
     android:text="Book My Reservation" />
 
@@ -38,6 +71,12 @@ android:layout_height="match_parent">
     android:id="@+id/button7"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="40dp"
+    android:layout_marginRight="40dp"
+    android:height="10dp"
+    android:textColor="#FFFFFF"
+    android:background="@drawable/custom_reverse_button"
     android:clickable="true"
     android:text="Cancel Specific Reservation" />
 
@@ -45,6 +84,12 @@ android:layout_height="match_parent">
     android:id="@+id/button8"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="40dp"
+    android:layout_marginRight="40dp"
+    android:height="10dp"
+    android:textColor="#FFFFFF"
+    android:background="@drawable/custom_reverse_button"
     android:clickable="true"
     android:text="Modify Specific Reservation" />
 
@@ -52,6 +97,12 @@ android:layout_height="match_parent">
     android:id="@+id/button9"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="40dp"
+    android:layout_marginRight="40dp"
+    android:height="10dp"
+    android:textColor="#FFFFFF"
+    android:background="@drawable/custom_reverse_button"
     android:clickable="true"
     android:text="Request Reservation" />
 
@@ -59,6 +110,12 @@ android:layout_height="match_parent">
     android:id="@+id/button10"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="40dp"
+    android:layout_marginRight="40dp"
+    android:height="10dp"
+    android:textColor="#FFFFFF"
+    android:background="@drawable/custom_reverse_button"
     android:clickable="true"
     android:text="View My Reservation" />
 
@@ -66,6 +123,12 @@ android:layout_height="match_parent">
     android:id="@+id/button11"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="40dp"
+    android:layout_marginRight="40dp"
+    android:height="10dp"
+    android:textColor="#FFFFFF"
+    android:background="@drawable/custom_reverse_button"
     android:clickable="true"
     android:text="View Specific Reservations" />
 
@@ -73,6 +136,12 @@ android:layout_height="match_parent">
     android:id="@+id/button12"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="40dp"
+    android:layout_marginRight="40dp"
+    android:height="10dp"
+    android:textColor="#FFFFFF"
+    android:background="@drawable/custom_reverse_button"
     android:clickable="true"
     android:text="View My Violations" />
 
@@ -80,6 +149,12 @@ android:layout_height="match_parent">
     android:id="@+id/button13"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="40dp"
+    android:layout_marginRight="40dp"
+    android:height="10dp"
+    android:textColor="#FFFFFF"
+    android:background="@drawable/custom_reverse_button"
     android:clickable="true"
     android:text="View Specific Violations" />
 
