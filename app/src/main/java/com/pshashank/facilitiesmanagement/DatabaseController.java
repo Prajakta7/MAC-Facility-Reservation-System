@@ -47,12 +47,13 @@ public class DatabaseController extends SQLiteOpenHelper {
     }
 
 
-    public boolean insertContact(String type, String uname, String pass,String fname,String lname,String phone,String email, String address,String city,
+    public boolean insertUser(String type, String utaid, String uname, String pass,String fname,String lname,String phone,String email, String address,String city,
                                  String state,String zip) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("user_type", type);
+        contentValues.put("user_id", utaid);
         contentValues.put("user_uname", uname);
         contentValues.put("user_pass", pass);
         contentValues.put("first_name", fname);
