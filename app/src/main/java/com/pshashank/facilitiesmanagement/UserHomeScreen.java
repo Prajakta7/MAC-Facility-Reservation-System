@@ -9,13 +9,25 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class UserHomeScreen extends LoginActivity {
+    private Button viewreservation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home_screen);
+
+        viewreservation = (Button) findViewById(R.id.viewreservation);
+        viewreservation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(UserHomeScreen.this, ViewReservationsActivity.class);
+                startActivity(in);
+            }
+        });
     }
 
     @Override
