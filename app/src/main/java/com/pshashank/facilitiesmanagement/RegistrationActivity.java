@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 public class RegistrationActivity extends AppCompatActivity {
 
     private TextView redirect;
+    private Button register;
     private EditText firstname;
     private EditText lastname;
     private EditText utaid;
@@ -47,6 +49,7 @@ public class RegistrationActivity extends AppCompatActivity {
         email = (EditText)findViewById(R.id.email);
         address = (EditText)findViewById(R.id.address);
         city = (EditText)findViewById(R.id.city);
+        state = (EditText)findViewById(R.id.state);
         zip = (EditText)findViewById(R.id.zip);
         username = (EditText)findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
@@ -61,8 +64,8 @@ public class RegistrationActivity extends AppCompatActivity {
         actv.setThreshold(1);
         actv.setAdapter(adapter);
 
-        redirect = (TextView)findViewById(R.id.redirect);
-        redirect.setOnClickListener(new View.OnClickListener() {
+        register = (Button)findViewById(R.id.register);
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(utaid.getText()!= null & username.getText()!= null & password.getText()!= null & firstname.getText() != null){
@@ -78,6 +81,15 @@ public class RegistrationActivity extends AppCompatActivity {
                     Toast.makeText(RegistrationActivity.this, "Please fill all required fields marked *", Toast.LENGTH_SHORT).show();
                 }
                 Intent in = new Intent(RegistrationActivity.this, UserHomeScreen.class);
+                startActivity(in);
+            }
+        });
+
+        redirect = (TextView) findViewById(R.id.redirect);
+        redirect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(RegistrationActivity.this, LoginActivity.class);
                 startActivity(in);
             }
         });

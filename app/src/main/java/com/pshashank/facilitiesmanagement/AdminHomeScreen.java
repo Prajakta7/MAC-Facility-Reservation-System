@@ -3,6 +3,7 @@ package com.pshashank.facilitiesmanagement;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuBuilder;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,6 +20,7 @@ public class AdminHomeScreen extends AppCompatActivity {
 
 
     @Override
+    @SuppressLint("RestrictedApi")
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.toolbar_main_menu,menu);
@@ -35,11 +37,16 @@ public class AdminHomeScreen extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+        Intent in;
         switch (item.getItemId()) {
             case R.id.logout:
 //                Toast.makeText(getApplicationContext(),"Add Clicked",Toast.LENGTH_LONG).show();
+                in = new Intent(AdminHomeScreen.this, LoginActivity.class);
+                startActivity(in);
+                return true;
 
-                Intent in = new Intent(AdminHomeScreen.this, LoginActivity.class);
+            case R.id.viewprofile:
+                in = new Intent(AdminHomeScreen.this, UserProfileActivity.class);
                 startActivity(in);
                 return true;
         }

@@ -19,6 +19,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText username;
     private EditText password;
     private Button login;
+    private Button signup;
     public static final String ADMIN = "admin" ;
     public static final String FM = "facility_manager" ;
     public static final String USER = "user" ;
@@ -29,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         SQLiteDatabase db = obj.getReadableDatabase();
-//        boolean res = obj.insertContact(FM,"jdoe","pass","jane","doe","1244567890","jane.doe@mavs.uta.edu","Summit Ave","Arlington","Texas","76013");
+//        boolean res = obj.insertUser(FM,"jdoe","pass","jane","doe","1244567890","jane.doe@mavs.uta.edu","Summit Ave","Arlington","Texas","76013");
 //        if(res){
 //            Log.d("----->SQLInsert","Inserted");
 //        }
@@ -77,7 +78,14 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-
+        signup = (Button)findViewById(R.id.signup);
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(LoginActivity.this, RegistrationActivity.class);
+                startActivity(in);
+            }
+        });
 
     }
 }

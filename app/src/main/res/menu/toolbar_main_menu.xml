@@ -9,4 +9,10 @@
         android:icon="@drawable/ic_logout"
         app:showAsAction="never"
         />
+    <item
+        android:id="@+id/viewprofile"
+        android:title="View Profile"
+        android:icon="@drawable/ic_user"
+        app:showAsAction="never"
+        />
 </menu>

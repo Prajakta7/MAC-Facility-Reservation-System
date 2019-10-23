@@ -3,6 +3,7 @@ package com.pshashank.facilitiesmanagement;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuBuilder;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,6 +20,7 @@ public class FMActivity extends LoginActivity {
 
 
     @Override
+    @SuppressLint("RestrictedApi")
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.toolbar_main_menu,menu);
@@ -35,10 +37,16 @@ public class FMActivity extends LoginActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
+        Intent in;
         switch (item.getItemId()) {
             case R.id.logout:
 //                Toast.makeText(getApplicationContext(),"Add Clicked",Toast.LENGTH_LONG).show();
-                Intent in = new Intent(FMActivity.this, LoginActivity.class);
+                in = new Intent(FMActivity.this, LoginActivity.class);
+                startActivity(in);
+                return true;
+
+            case R.id.viewprofile:
+                in = new Intent(FMActivity.this, UserProfileActivity.class);
                 startActivity(in);
                 return true;
         }
