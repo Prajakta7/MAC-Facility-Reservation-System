@@ -151,4 +151,5 @@
     </string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_scrolling1">ScrollingActivity1</string>
+    <string name="title_activity_view_selected_violation">ViewSelectedViolationActivity</string>
 </resources>
