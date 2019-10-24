@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ScrollingActivity1"
+            android:label="@string/title_activity_scrolling1"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".UserProfileActivity"
             android:label="@string/title_activity_user_profile"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".FMActivity" />
         <activity android:name=".AdminHomeScreen" />
