@@ -52,18 +52,18 @@ public class DatabaseController extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("user_type", type);
-        contentValues.put("user_id", utaid);
-        contentValues.put("user_uname", uname);
-        contentValues.put("user_pass", pass);
-        contentValues.put("first_name", fname);
-        contentValues.put("last_name", lname);
-        contentValues.put("phone", phone);
-        contentValues.put("email", email);
-        contentValues.put("street_address", address);
-        contentValues.put("city", city);
-        contentValues.put("state", state);
-        contentValues.put("zip_code", zip);
+        contentValues.put(COLUMN_TYPE, type);
+        contentValues.put(COLUMN_UTAID, utaid);
+        contentValues.put(COLUMN_UNAME, uname);
+        contentValues.put(COLUMN_PASS, pass);
+        contentValues.put(COLUMN_FNAME, fname);
+        contentValues.put(COLUMN_LNAME, lname);
+        contentValues.put(COLUMN_PHONE, phone);
+        contentValues.put(COLUMN_EMAIL, email);
+        contentValues.put(COLUMN_ADDRESS, address);
+        contentValues.put(COLUMN_CITY, city);
+        contentValues.put(COLUMN_STATE, state);
+        contentValues.put(COLUMN_ZIP, zip);
         db.insert(TABLE_USER, null, contentValues);
         return true;
     }
@@ -84,25 +84,22 @@ public class DatabaseController extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean updateContact (String id,String fname, String mname,String lname,
-                                  String gender,String age, String status,String date,String qualification,
-                                  String experience,String empid,String branch,String department,String salary,byte[] image) {
+    public boolean updateUser (String utaid, String uname, String pass,String fname,String lname,String phone,String email, String address,String city,
+                                 String state,String zip) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("first_name", fname);
-        contentValues.put("middle_name", mname);
-        contentValues.put("last_name", lname);
-        contentValues.put("gender", gender);
-        contentValues.put("age", age);
-        contentValues.put("status", status);
-        contentValues.put("date_of_grad", date);
-        contentValues.put("qualification", qualification);
-        contentValues.put("experience", experience);
-        contentValues.put("emp_id", empid);
-        contentValues.put("branch", branch);
-        contentValues.put("department", department);
-        contentValues.put("salary", salary);
-        db.update("employees", contentValues, "id = ? ", new String[] { (id) } );
+        contentValues.put(COLUMN_UTAID, utaid);
+        contentValues.put(COLUMN_UNAME, uname);
+        contentValues.put(COLUMN_PASS, pass);
+        contentValues.put(COLUMN_FNAME, fname);
+        contentValues.put(COLUMN_LNAME, lname);
+        contentValues.put(COLUMN_PHONE, phone);
+        contentValues.put(COLUMN_EMAIL, email);
+        contentValues.put(COLUMN_ADDRESS, address);
+        contentValues.put(COLUMN_CITY, city);
+        contentValues.put(COLUMN_STATE, state);
+        contentValues.put(COLUMN_ZIP, zip);
+        db.update(TABLE_USER, contentValues,COLUMN_UTAID+"="+utaid,null);
         return true;
     }
 
