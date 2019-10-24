@@ -15,72 +15,9 @@ android:layout_height="match_parent">
     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
     android:textSize="24sp" />
 
-<Button
-    android:id="@+id/button4"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    android:layout_marginLeft="40dp"
-    android:layout_marginRight="40dp"
-    android:height="10dp"
-    android:textColor="#FFFFFF"
-    android:background="@drawable/custom_reverse_button"
-    android:text="Update My Profile" />
 
 <Button
-    android:id="@+id/button5"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    android:layout_marginLeft="40dp"
-    android:layout_marginRight="40dp"
-    android:height="10dp"
-    android:textColor="#FFFFFF"
-    android:background="@drawable/custom_reverse_button"
-    android:clickable="true"
-    android:text="View My Profile" />
-
-<Button
-    android:id="@+id/button6"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    android:layout_marginLeft="40dp"
-    android:layout_marginRight="40dp"
-    android:height="10dp"
-    android:textColor="#FFFFFF"
-    android:background="@drawable/custom_reverse_button"
-    android:clickable="true"
-    android:text="Book My Reservation" />
-
-<Button
-    android:id="@+id/button7"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    android:layout_marginLeft="40dp"
-    android:layout_marginRight="40dp"
-    android:height="10dp"
-    android:textColor="#FFFFFF"
-    android:background="@drawable/custom_reverse_button"
-    android:clickable="true"
-    android:text="Cancel Specific Reservation" />
-
-<Button
-    android:id="@+id/button8"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    android:layout_marginLeft="40dp"
-    android:layout_marginRight="40dp"
-    android:height="10dp"
-    android:textColor="#FFFFFF"
-    android:background="@drawable/custom_reverse_button"
-    android:clickable="true"
-    android:text="Modify Specific Reservation" />
-
-<Button
-    android:id="@+id/button9"
+    android:id="@+id/requestreservation"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
@@ -105,43 +42,20 @@ android:layout_height="match_parent">
     android:clickable="true"
     android:text="View My Reservation" />
 
-<Button
-    android:id="@+id/button11"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    android:layout_marginLeft="40dp"
-    android:layout_marginRight="40dp"
-    android:height="10dp"
-    android:textColor="#FFFFFF"
-    android:background="@drawable/custom_reverse_button"
-    android:clickable="true"
-    android:text="View Specific Reservations" />
 
-<Button
-    android:id="@+id/button12"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    android:layout_marginLeft="40dp"
-    android:layout_marginRight="40dp"
-    android:height="10dp"
-    android:textColor="#FFFFFF"
-    android:background="@drawable/custom_reverse_button"
-    android:clickable="true"
-    android:text="View My Violations" />
+    <Button
+        android:id="@+id/viewviolations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="40dp"
+        android:height="10dp"
+        android:background="@drawable/custom_reverse_button"
+        android:clickable="true"
+        android:text="View My Violations"
+        android:textColor="#FFFFFF" />
 
-<Button
-    android:id="@+id/button13"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    android:layout_marginLeft="40dp"
-    android:layout_marginRight="40dp"
-    android:height="10dp"
-    android:textColor="#FFFFFF"
-    android:background="@drawable/custom_reverse_button"
-    android:clickable="true"
-    android:text="View Specific Violations" />
+
 
 </LinearLayout>

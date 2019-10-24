@@ -1,6 +1,5 @@
 package com.pshashank.facilitiesmanagement;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuBuilder;
 
 import android.annotation.SuppressLint;
@@ -13,18 +12,35 @@ import android.view.View;
 import android.widget.Button;
 
 public class UserHomeScreen extends LoginActivity {
-    private Button viewreservation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home_screen);
 
-        viewreservation = (Button) findViewById(R.id.viewreservation);
+        Button viewreservation = (Button) findViewById(R.id.viewreservation);
         viewreservation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent in = new Intent(UserHomeScreen.this, ViewReservationsActivity.class);
+                startActivity(in);
+            }
+        });
+
+        Button requestreservation = (Button) findViewById(R.id.requestreservation);
+        requestreservation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(UserHomeScreen.this, RequestReservationActivity.class);
+                startActivity(in);
+            }
+        });
+
+        Button viewviolations = (Button) findViewById(R.id.viewviolations);
+        viewviolations.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(UserHomeScreen.this, RequestReservationActivity.class);
                 startActivity(in);
             }
         });
