@@ -30,6 +30,7 @@ public class DatabaseController extends SQLiteOpenHelper {
     private static final String DATABASE_CREATE = "CREATE TABLE IF NOT EXISTS "
             + TABLE_USER + " ( " +
             COLUMN_TYPE+ " TEXT ,"+
+            COLUMN_UTAID+ " TEXT ,"+
             COLUMN_UNAME+ " TEXT ,"+
             COLUMN_PASS+ " TEXT ,"+
             COLUMN_FNAME+ " TEXT ,"+
@@ -70,6 +71,12 @@ public class DatabaseController extends SQLiteOpenHelper {
     public Cursor getUser(String username, String password){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res =  db.rawQuery( "select * from '"+TABLE_USER+"' where user_uname = '"+username+"' and user_pass ='"+password+"'", null );
+        return res;
+    }
+
+    public Cursor searchUser(String lastname){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from '"+TABLE_USER+"' where '"+COLUMN_LNAME+"' = '"+lastname+"'", null );
         return res;
     }
 

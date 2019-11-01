@@ -1,4 +1,4 @@
-package com.pshashank.facilitiesmanagement;
+package com.pshashank.facilitiesmanagement.User;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.pshashank.facilitiesmanagement.DatabaseController;
+import com.pshashank.facilitiesmanagement.LoginActivity;
+import com.pshashank.facilitiesmanagement.R;
 
 public class RegistrationActivity extends AppCompatActivity {
 

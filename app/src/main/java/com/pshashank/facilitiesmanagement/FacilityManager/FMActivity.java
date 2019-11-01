@@ -1,6 +1,5 @@
-package com.pshashank.facilitiesmanagement;
+package com.pshashank.facilitiesmanagement.FacilityManager;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuBuilder;
 
 import android.annotation.SuppressLint;
@@ -9,6 +8,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import com.pshashank.facilitiesmanagement.LoginActivity;
+import com.pshashank.facilitiesmanagement.R;
+import com.pshashank.facilitiesmanagement.UserProfileActivity;
 
 public class FMActivity extends LoginActivity {
 

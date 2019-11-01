@@ -1,4 +1,4 @@
-package com.pshashank.facilitiesmanagement;
+package com.pshashank.facilitiesmanagement.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuBuilder;
@@ -9,6 +9,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import com.pshashank.facilitiesmanagement.LoginActivity;
+import com.pshashank.facilitiesmanagement.R;
+import com.pshashank.facilitiesmanagement.UserProfileActivity;
 
 public class AdminHomeScreen extends AppCompatActivity {
 

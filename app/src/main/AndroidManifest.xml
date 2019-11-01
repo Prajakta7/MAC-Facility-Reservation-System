@@ -9,27 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Admin.SearchUserActivity"></activity>
         <activity
-            android:name=".ViewSelectedViolationActivity"
-            android:label="@string/title_activity_view_selected_violation"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ViewViolationsActivity" />
-        <activity android:name=".ModifyReservationActivity" />
-        <activity android:name=".BookReservationActivity" />
-        <activity android:name=".RequestReservationActivity" />
-        <activity android:name=".ViewReservationsActivity" />
-        <activity android:name=".UpdateProfileActivity" />
-        <activity
-            android:name=".ScrollingActivity1"
-            android:label="@string/title_activity_scrolling1"
+            android:name=".User.ViewSelectedViolationActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".User.ViewViolationsActivity" />
+        <activity android:name=".User.ModifyReservationActivity"></activity>
+        <activity android:name=".User.BookReservationActivity" />
+        <activity android:name=".User.RequestReservationActivity" />
+        <activity android:name=".User.ViewReservationsActivity" />
+        <activity android:name=".UpdateProfileActivity"></activity>
+        <activity
+            android:name=".User.ViewSpecificReservationActivity"
+            android:label="ViewSpecificReservation"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".UserProfileActivity"
             android:label="@string/title_activity_user_profile"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".RegistrationActivity" />
-        <activity android:name=".FMActivity" />
-        <activity android:name=".AdminHomeScreen" />
+        <activity android:name=".User.RegistrationActivity" />
+        <activity android:name=".FacilityManager.FMActivity" />
+        <activity android:name=".Admin.AdminHomeScreen" />
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -39,7 +39,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserHomeScreen" />
+        <activity android:name=".User.UserHomeScreen" />
     </application>
 
 </manifest>

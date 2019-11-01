@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ScrollingActivity1"
+    tools:context=".User.ViewSpecificReservationActivity"
     tools:showIn="@layout/activity_view_specific_reservation">
 
     <RelativeLayout
@@ -28,8 +28,7 @@
             android:id="@+id/startdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="startdate"
-            android:visibility="gone"
+            android:text="10-21-2019"
             android:textSize="24sp"
             />
 
@@ -52,8 +51,7 @@
             android:id="@+id/starttime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="starttime"
-            android:visibility="gone"
+            android:text="10:00 AM"
             android:textSize="24sp"
             />
 
@@ -76,8 +74,7 @@
             android:id="@+id/endtime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="endtime"
-            android:visibility="gone"
+            android:text="11:00 AM"
             android:textSize="24sp"
             />
     </LinearLayout>
@@ -99,8 +96,7 @@
             android:id="@+id/facilitytype"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="facilitytype"
-            android:visibility="gone"
+            android:text="Indoor"
             android:textSize="24sp"
             />
     </LinearLayout>
@@ -122,8 +118,7 @@
             android:id="@+id/facilityname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="facilitytype"
-            android:visibility="gone"
+            android:text="MR1"
             android:textSize="24sp"
             />
     </LinearLayout>
@@ -145,8 +140,7 @@
             android:id="@+id/resname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="resname"
-            android:visibility="gone"
+            android:text="1234"
             android:textSize="24sp"
             />
     </LinearLayout>
@@ -168,8 +162,7 @@
             android:id="@+id/amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="amount"
-            android:visibility="gone"
+            android:text="$40"
             android:textSize="24sp"
             />
     </LinearLayout>

@@ -1,4 +1,4 @@
-package com.pshashank.facilitiesmanagement;
+package com.pshashank.facilitiesmanagement.User;
 
 import androidx.appcompat.view.menu.MenuBuilder;
 
@@ -10,6 +10,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import com.pshashank.facilitiesmanagement.LoginActivity;
+import com.pshashank.facilitiesmanagement.R;
+import com.pshashank.facilitiesmanagement.UserProfileActivity;
 
 public class UserHomeScreen extends LoginActivity {
 
@@ -40,7 +44,7 @@ public class UserHomeScreen extends LoginActivity {
         viewviolations.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(UserHomeScreen.this, RequestReservationActivity.class);
+                Intent in = new Intent(UserHomeScreen.this, ViewViolationsActivity.class);
                 startActivity(in);
             }
         });

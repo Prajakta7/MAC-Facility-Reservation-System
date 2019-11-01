@@ -3,6 +3,7 @@ package com.pshashank.facilitiesmanagement;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
@@ -13,6 +14,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.pshashank.facilitiesmanagement.Admin.AdminHomeScreen;
+import com.pshashank.facilitiesmanagement.FacilityManager.FMActivity;
+import com.pshashank.facilitiesmanagement.User.RegistrationActivity;
+import com.pshashank.facilitiesmanagement.User.UserHomeScreen;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -30,10 +36,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         SQLiteDatabase db = obj.getReadableDatabase();
-//        boolean res = obj.insertUser(FM,"jdoe","pass","jane","doe","1244567890","jane.doe@mavs.uta.edu","Summit Ave","Arlington","Texas","76013");
-//        if(res){
-//            Log.d("----->SQLInsert","Inserted");
-//        }
+        boolean res = obj.insertUser(USER,"1001652446","jdoe","pass","jane","doe","1244567890","jane.doe@mavs.uta.edu","Summit Ave","Arlington","Texas","76013");
+        if(res){
+            Log.d("----->SQLInsert","Inserted");
+        }
         TextView app_name = (TextView) findViewById(R.id.app_name);
         //Custom font`
         Typeface custom_font = Typeface.createFromAsset(getAssets(), "Raleway-SemiBold.ttf");
@@ -50,6 +56,22 @@ public class LoginActivity extends AppCompatActivity {
                     if (cur != null) {
                         if (cur.moveToFirst()) {
                             int index;
+
+                            SharedPreferences pref = getApplicationContext().getSharedPreferences("UserDetails", MODE_PRIVATE);
+                            SharedPreferences.Editor editor = pref.edit();
+                            editor.putString("Username", cur.getString(cur.getColumnIndexOrThrow("user_uname")));
+                            editor.putString("Password", cur.getString(cur.getColumnIndexOrThrow("user_pass")));
+                            editor.putString("FirstName", cur.getString(cur.getColumnIndexOrThrow("first_name")));
+                            editor.putString("LastName", cur.getString(cur.getColumnIndexOrThrow("last_name")));
+                            editor.putString("UTAID", cur.getString(cur.getColumnIndexOrThrow("user_id")));
+                            editor.putString("phone", cur.getString(cur.getColumnIndexOrThrow("phone")));
+                            editor.putString("email", cur.getString(cur.getColumnIndexOrThrow("email")));
+                            editor.putString("address", cur.getString(cur.getColumnIndexOrThrow("street_address")));
+                            editor.putString("city", cur.getString(cur.getColumnIndexOrThrow("city")));
+                            editor.putString("state", cur.getString(cur.getColumnIndexOrThrow("state")));
+                            editor.putString("zip", cur.getString(cur.getColumnIndexOrThrow("zip_code")));
+
+                            editor.commit();
 
                             index = cur.getColumnIndexOrThrow("user_type");
                             String type = cur.getString(index);
