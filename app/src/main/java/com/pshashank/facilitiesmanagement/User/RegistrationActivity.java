@@ -14,7 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.pshashank.facilitiesmanagement.DatabaseController;
+import com.pshashank.facilitiesmanagement.POJO.User;
+import com.pshashank.facilitiesmanagement.Controllers.UserDatabaseController;
 import com.pshashank.facilitiesmanagement.LoginActivity;
 import com.pshashank.facilitiesmanagement.R;
 
@@ -34,7 +35,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText username;
     private EditText password;
     private EditText confirmpassword;
-    DatabaseController obj = new DatabaseController(this);
+    UserDatabaseController obj = new UserDatabaseController(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +75,17 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(utaid.getText()!= null & username.getText()!= null & password.getText()!= null & firstname.getText() != null){
                     if(password.getText().toString().equals(confirmpassword.getText().toString())) {
-                        obj.insertUser("user", utaid.getText().toString(), username.getText().toString(), password.getText().toString(), firstname.getText().toString(), lastname.getText().toString(),
-                                phone.getText().toString(), email.getText().toString(), address.getText().toString(), city.getText().toString(), state.getText().toString(), zip.getText().toString());
+                        User user = new User();
+                        user.setFName(firstname.getText().toString());
+                        user.setLName(lastname.getText().toString());
+                        user.setUTAID(utaid.getText().toString());
+                        user.setPhone(phone.getText().toString());
+                        user.setEmail(email.getText().toString());
+                        user.setAddress(address.getText().toString());
+                        user.setCity(city.getText().toString());
+                        user.setState(state.getText().toString());
+                        user.setZip(zip.getText().toString());
+                        obj.insertUser("user", username.getText().toString(), password.getText().toString(),user);
                     }
                     else{
                         Toast.makeText(RegistrationActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();

@@ -9,20 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Admin.SearchUserActivity"></activity>
+        <activity android:name=".FacilityManager.ViewAllReservationsActivity"></activity>
+        <activity
+            android:name=".Admin.ViewSpecificUserActivity"
+            android:label="@string/title_activity_view_specific_user"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Admin.ModifyUserProfileActivity" />
+        <activity android:name=".Admin.SearchUserActivity" />
         <activity
             android:name=".User.ViewSelectedViolationActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".User.ViewViolationsActivity" />
-        <activity android:name=".User.ModifyReservationActivity"></activity>
+        <activity android:name=".User.ModifyReservationActivity" />
         <activity android:name=".User.BookReservationActivity" />
         <activity android:name=".User.RequestReservationActivity" />
         <activity android:name=".User.ViewReservationsActivity" />
-        <activity android:name=".UpdateProfileActivity"></activity>
+        <activity android:name=".UpdateProfileActivity" />
         <activity
             android:name=".User.ViewSpecificReservationActivity"
             android:label="ViewSpecificReservation"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".UserProfileActivity"
             android:label="@string/title_activity_user_profile"

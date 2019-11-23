@@ -1,25 +1,27 @@
-package com.pshashank.facilitiesmanagement;
+package com.pshashank.facilitiesmanagement.Admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.pshashank.facilitiesmanagement.Controllers.UserDatabaseController;
 import com.pshashank.facilitiesmanagement.POJO.User;
 import com.pshashank.facilitiesmanagement.R;
+import com.pshashank.facilitiesmanagement.User.ModifyReservationActivity;
 
-public class UpdateProfileActivity extends AppCompatActivity {
+public class ModifyUserProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_profile);
-        UserDatabaseController obj = new UserDatabaseController(UpdateProfileActivity.this);
+        setContentView(R.layout.activity_modify_user_profile);
+
+        UserDatabaseController obj = new UserDatabaseController(ModifyUserProfileActivity.this);
 
         EditText firstname = findViewById(R.id.firstname);
         EditText lastname = findViewById(R.id.lastname);
@@ -30,8 +32,8 @@ public class UpdateProfileActivity extends AppCompatActivity {
         EditText city = findViewById(R.id.city);
         EditText state = findViewById(R.id.state);
         EditText zip = findViewById(R.id.zip);
-        EditText username = findViewById(R.id.username);
         EditText password = findViewById(R.id.password);
+        EditText confirmpassword = findViewById(R.id.confirmpassword);
 
         Button update = findViewById(R.id.update);
 
@@ -48,13 +50,16 @@ public class UpdateProfileActivity extends AppCompatActivity {
                 user.setCity(city.getText().toString());
                 user.setState(state.getText().toString());
                 user.setZip(zip.getText().toString());
-
-                SharedPreferences pref = getApplicationContext().getSharedPreferences("UserDetails", MODE_PRIVATE);
-                String type = pref.getString("Type", null);
-                boolean res = obj.updateUser(password.getText().toString(),user);
-                if (res){
-                    Intent in = LoginActivity.redirect(UpdateProfileActivity.this, type);
-                    startActivity(in);
+                if (password.getText().toString().equals(confirmpassword.getText().toString())){
+                    boolean res = obj.updateUser(password.getText().toString(), user);
+                    if(res){
+                        Toast.makeText(ModifyUserProfileActivity.this, "User profile Updated",Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(ModifyUserProfileActivity.this, AdminHomeScreen.class);
+                        startActivity(intent);
+                    }
+                    else{
+                        Toast.makeText(ModifyUserProfileActivity.this, "Update failed",Toast.LENGTH_LONG).show();
+                    }
                 }
 
             }

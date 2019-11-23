@@ -2,10 +2,10 @@ package com.pshashank.facilitiesmanagement;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,7 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pshashank.facilitiesmanagement.Admin.AdminHomeScreen;
+import com.pshashank.facilitiesmanagement.Controllers.UserDatabaseController;
 import com.pshashank.facilitiesmanagement.FacilityManager.FMActivity;
+import com.pshashank.facilitiesmanagement.POJO.User;
 import com.pshashank.facilitiesmanagement.User.RegistrationActivity;
 import com.pshashank.facilitiesmanagement.User.UserHomeScreen;
 
@@ -24,30 +26,43 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText username;
     private EditText password;
-    private Button login;
-    private Button signup;
     public static final String ADMIN = "admin" ;
     public static final String FM = "facility_manager" ;
     public static final String USER = "user" ;
-    DatabaseController obj = new DatabaseController(this);
+    UserDatabaseController obj = new UserDatabaseController(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        User user = new User();
+        user.setFName("jdoe");
+        user.setLName("pass");
+        user.setUTAID("1001652446");
+        user.setPhone("1244567890");
+        user.setEmail("jane.doe@mavs.uta.edu");
+        user.setAddress("Summit Ave");
+        user.setCity("Arlington");
+        user.setState("Texas");
+        user.setZip("76013");
 
-        SQLiteDatabase db = obj.getReadableDatabase();
-        boolean res = obj.insertUser(USER,"1001652446","jdoe","pass","jane","doe","1244567890","jane.doe@mavs.uta.edu","Summit Ave","Arlington","Texas","76013");
-        if(res){
-            Log.d("----->SQLInsert","Inserted");
-        }
-        TextView app_name = (TextView) findViewById(R.id.app_name);
+//        SQLiteDatabase db = obj.getReadableDatabase();
+//        boolean res = obj.insertUser(USER,"jdoe","pass",user);
+//        if(res){
+//            Log.d("----->SQLInsert","Inserted");
+//        }
+        TextView app_name =  findViewById(R.id.app_name);
         //Custom font`
         Typeface custom_font = Typeface.createFromAsset(getAssets(), "Raleway-SemiBold.ttf");
         app_name.setTypeface(custom_font);
-        username = (EditText)findViewById(R.id.username);
-        password = (EditText) findViewById(R.id.password);
+        username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
 
-        login = (Button)findViewById(R.id.login);
+        Button login;
+        Button signup;
+
+        login = findViewById(R.id.login);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             SharedPreferences pref = getApplicationContext().getSharedPreferences("UserDetails", MODE_PRIVATE);
                             SharedPreferences.Editor editor = pref.edit();
+                            editor.putString("Type", cur.getString(cur.getColumnIndexOrThrow("user_type")));
                             editor.putString("Username", cur.getString(cur.getColumnIndexOrThrow("user_uname")));
                             editor.putString("Password", cur.getString(cur.getColumnIndexOrThrow("user_pass")));
                             editor.putString("FirstName", cur.getString(cur.getColumnIndexOrThrow("first_name")));
@@ -70,26 +86,13 @@ public class LoginActivity extends AppCompatActivity {
                             editor.putString("city", cur.getString(cur.getColumnIndexOrThrow("city")));
                             editor.putString("state", cur.getString(cur.getColumnIndexOrThrow("state")));
                             editor.putString("zip", cur.getString(cur.getColumnIndexOrThrow("zip_code")));
-
-                            editor.commit();
+                            editor.apply();
 
                             index = cur.getColumnIndexOrThrow("user_type");
                             String type = cur.getString(index);
-                            Intent in;
-                            switch (type) {
-                                case ADMIN:
-                                    in = new Intent(LoginActivity.this, AdminHomeScreen.class);
-                                    startActivity(in);
-                                    break;
-                                case FM:
-                                    in = new Intent(LoginActivity.this, FMActivity.class);
-                                    startActivity(in);
-                                    break;
-                                case USER:
-                                    in = new Intent(LoginActivity.this, UserHomeScreen.class);
-                                    startActivity(in);
-                                    break;
-                            }
+                            Intent in = redirect(LoginActivity.this, type);
+                            startActivity(in);
+
                         } else
                             Toast.makeText(LoginActivity.this, "Incorrect Username or Password", Toast.LENGTH_SHORT).show();
 
@@ -100,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-        signup = (Button)findViewById(R.id.signup);
+        signup = findViewById(R.id.signup);
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,5 +112,20 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+    public static Intent redirect(Context context, String type){
+        Intent in = new Intent();
+        switch (type) {
+            case ADMIN:
+                in = new Intent(context, AdminHomeScreen.class);
+                break;
+            case FM:
+                in = new Intent(context, FMActivity.class);
+                break;
+            case USER:
+                in = new Intent(context, UserHomeScreen.class);
+                break;
+        }
+        return in;
     }
 }

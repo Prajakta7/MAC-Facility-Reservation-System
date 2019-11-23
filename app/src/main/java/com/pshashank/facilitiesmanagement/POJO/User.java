@@ -4,6 +4,7 @@ public class User {
 
     String FName;
     String LName;
+    String UTAID;
     String Phone;
     String Email;
     String Address;
@@ -41,6 +42,14 @@ public class User {
 
     public String getZip() {
         return Zip;
+    }
+
+    public String getUTAID() {
+        return UTAID;
+    }
+
+    public void setUTAID(String UTAID) {
+        this.UTAID = UTAID;
     }
 
     public void setFName(String FName) {

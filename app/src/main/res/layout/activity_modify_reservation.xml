@@ -46,10 +46,16 @@
                     android:layout_weight="2"
                     android:textSize="20sp"/>
 
-                <DatePicker
-                    android:layout_gravity="center"
+<!--                <DatePicker-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="90dp"-->
+<!--                    android:layout_weight="1"/>-->
+
+                <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"/>
             </LinearLayout>
 
@@ -57,6 +63,7 @@
                 android:id="@+id/layout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -69,11 +76,12 @@
                     android:layout_weight="2"
                     android:textSize="20sp"/>
 
-                <TimePicker
-                    android:layout_gravity="center"
+                <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="90dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_weight="1"/>
+
             </LinearLayout>
 
 

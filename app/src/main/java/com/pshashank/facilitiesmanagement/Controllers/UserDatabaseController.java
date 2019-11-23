@@ -1,4 +1,4 @@
-package com.pshashank.facilitiesmanagement;
+package com.pshashank.facilitiesmanagement.Controllers;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,10 +7,12 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class DatabaseController extends SQLiteOpenHelper {
+import com.pshashank.facilitiesmanagement.POJO.User;
 
-    private static final String DATABASE_NAME = "Facillities.db";
-    public static final String TABLE_USER = "user";
+public class UserDatabaseController extends SQLiteOpenHelper {
+
+    private static final String DATABASE_NAME = "FacilityManagement.db";
+    public static final String TABLE_USER = "users";
     public static final String COLUMN_TYPE = "user_type";
     public static final String COLUMN_UNAME = "user_uname";
     public static final String COLUMN_PASS = "user_pass";
@@ -48,23 +50,22 @@ public class DatabaseController extends SQLiteOpenHelper {
     }
 
 
-    public boolean insertUser(String type, String utaid, String uname, String pass,String fname,String lname,String phone,String email, String address,String city,
-                                 String state,String zip) {
+    public boolean insertUser(String type, String uname, String pass, User user) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COLUMN_TYPE, type);
-        contentValues.put(COLUMN_UTAID, utaid);
+        contentValues.put(COLUMN_UTAID, user.getUTAID());
         contentValues.put(COLUMN_UNAME, uname);
         contentValues.put(COLUMN_PASS, pass);
-        contentValues.put(COLUMN_FNAME, fname);
-        contentValues.put(COLUMN_LNAME, lname);
-        contentValues.put(COLUMN_PHONE, phone);
-        contentValues.put(COLUMN_EMAIL, email);
-        contentValues.put(COLUMN_ADDRESS, address);
-        contentValues.put(COLUMN_CITY, city);
-        contentValues.put(COLUMN_STATE, state);
-        contentValues.put(COLUMN_ZIP, zip);
+        contentValues.put(COLUMN_FNAME, user.getFName());
+        contentValues.put(COLUMN_LNAME, user.getLName());
+        contentValues.put(COLUMN_PHONE, user.getPhone());
+        contentValues.put(COLUMN_EMAIL, user.getEmail());
+        contentValues.put(COLUMN_ADDRESS, user.getAddress());
+        contentValues.put(COLUMN_CITY, user.getCity());
+        contentValues.put(COLUMN_STATE, user.getState());
+        contentValues.put(COLUMN_ZIP, user.getZip());
         db.insert(TABLE_USER, null, contentValues);
         return true;
     }
@@ -80,7 +81,13 @@ public class DatabaseController extends SQLiteOpenHelper {
         return res;
     }
 
-    public DatabaseController(Context context) {
+    public Cursor getALlUser(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from '"+TABLE_USER+"'", null );
+        return res;
+    }
+
+    public UserDatabaseController(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -91,22 +98,21 @@ public class DatabaseController extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean updateUser (String utaid, String uname, String pass,String fname,String lname,String phone,String email, String address,String city,
-                                 String state,String zip) {
+    public boolean updateUser (String pass, User user) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COLUMN_UTAID, utaid);
-        contentValues.put(COLUMN_UNAME, uname);
+        contentValues.put(COLUMN_UTAID, user.getUTAID());
+//        contentValues.put(COLUMN_UNAME, uname);
         contentValues.put(COLUMN_PASS, pass);
-        contentValues.put(COLUMN_FNAME, fname);
-        contentValues.put(COLUMN_LNAME, lname);
-        contentValues.put(COLUMN_PHONE, phone);
-        contentValues.put(COLUMN_EMAIL, email);
-        contentValues.put(COLUMN_ADDRESS, address);
-        contentValues.put(COLUMN_CITY, city);
-        contentValues.put(COLUMN_STATE, state);
-        contentValues.put(COLUMN_ZIP, zip);
-        db.update(TABLE_USER, contentValues,COLUMN_UTAID+"="+utaid,null);
+        contentValues.put(COLUMN_FNAME, user.getFName());
+        contentValues.put(COLUMN_LNAME, user.getLName());
+        contentValues.put(COLUMN_PHONE, user.getPhone());
+        contentValues.put(COLUMN_EMAIL, user.getEmail());
+        contentValues.put(COLUMN_ADDRESS, user.getAddress());
+        contentValues.put(COLUMN_CITY, user.getCity());
+        contentValues.put(COLUMN_STATE, user.getState());
+        contentValues.put(COLUMN_ZIP, user.getZip());
+        db.update(TABLE_USER, contentValues,COLUMN_UTAID+"="+user.getUTAID(),null);
         return true;
     }
 

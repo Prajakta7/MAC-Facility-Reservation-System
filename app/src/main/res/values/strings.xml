@@ -59,6 +59,20 @@
         <item>Wisconsin</item>
         <item>Wyoming</item>
     </string-array>
+    <string-array name="Facility_Types">
+        <item>Type1</item>
+        <item>Type2</item>
+        <item>Type3</item>
+        <item>Type4</item>
+    </string-array>
+    <string-array name="Facility_Venues">
+        <item>Venue1</item>
+        <item>Venue2</item>
+        <item>Venue3</item>
+        <item>Venue4</item>
+        <item>Venue5</item>
+        <item>Venue6</item>
+    </string-array>
     <string name="title_activity_user_profile">UserProfileActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
@@ -152,4 +166,5 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_scrolling1">ScrollingActivity1</string>
     <string name="title_activity_view_selected_violation">ViewSelectedViolationActivity</string>
+    <string name="title_activity_view_specific_user">ViewSpecificUserActivity</string>
 </resources>

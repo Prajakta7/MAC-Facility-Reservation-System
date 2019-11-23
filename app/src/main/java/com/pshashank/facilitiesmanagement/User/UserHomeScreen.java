@@ -1,6 +1,7 @@
 package com.pshashank.facilitiesmanagement.User;
 
 import androidx.appcompat.view.menu.MenuBuilder;
+import androidx.cardview.widget.CardView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -22,7 +23,8 @@ public class UserHomeScreen extends LoginActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_home_screen);
 
-        Button viewreservation = (Button) findViewById(R.id.viewreservation);
+        CardView viewreservation = findViewById(R.id.viewreservation);
+        viewreservation.setBackgroundResource(R.drawable.custom_card);
         viewreservation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,7 +33,8 @@ public class UserHomeScreen extends LoginActivity {
             }
         });
 
-        Button requestreservation = (Button) findViewById(R.id.requestreservation);
+        CardView requestreservation = findViewById(R.id.requestreservation);
+        requestreservation.setBackgroundResource(R.drawable.custom_card);
         requestreservation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,7 +43,8 @@ public class UserHomeScreen extends LoginActivity {
             }
         });
 
-        Button viewviolations = (Button) findViewById(R.id.viewviolations);
+        CardView viewviolations = findViewById(R.id.viewviolations);
+        viewviolations.setBackgroundResource(R.drawable.custom_card);
         viewviolations.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

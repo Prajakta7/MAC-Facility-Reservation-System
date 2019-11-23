@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.widget.EditText;
 
 import com.pshashank.facilitiesmanagement.Adapters.UserAdapter;
-import com.pshashank.facilitiesmanagement.DatabaseController;
+import com.pshashank.facilitiesmanagement.Controllers.UserDatabaseController;
 import com.pshashank.facilitiesmanagement.POJO.User;
 import com.pshashank.facilitiesmanagement.R;
 
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class SearchUserActivity extends AppCompatActivity {
 
     UserAdapter userAdapter;
-    DatabaseController obj = new DatabaseController(this);
+    UserDatabaseController obj = new UserDatabaseController(this);
     EditText lastname;
 
     @Override
